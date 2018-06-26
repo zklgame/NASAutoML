@@ -91,10 +91,10 @@ class Reinforce():
                 self.train_op = self.optimizer.apply_gradients(self.gradients, global_step=self.global_step)
 
     def get_action(self, state):
-        if random.random() < self.exploration:
-            return np.array([[random.sample(range(1, 35), 4 * self.max_layers)]])
-        else:
-            return self.sess.run(self.predicted_action, {self.states: state})
+        # if random.random() < self.exploration:
+        #     return np.array([[random.sample(range(1, 35), 4 * self.max_layers)]])
+        # else:
+        return self.sess.run(self.predicted_action, {self.states: state})
 
     def store_rollout(self, state, reward):
         self.state_buffer.append(state[0])
